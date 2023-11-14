@@ -2,7 +2,6 @@ package ldap
 
 import (
 	"fmt"
-	"github.com/go-ldap/ldap"
 	"strings"
 )
 

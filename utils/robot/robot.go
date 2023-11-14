@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"github.com/go-vgo/robotgo"
+	hook "github.com/robotn/gohook"
+	"github.com/vcaesar/bitmap"
 )
 
 // 需要安装 MinGW
@@ -30,9 +32,9 @@ func ListenScreen() {
 	for {
 		select {
 		case <-ticker.C:
-			bitmap := robotgo.CaptureScreen(10, 20, 30, 40)
-			robotgo.FindBitmap(bitmap)
-			robotgo.SaveBitmap(bitmap, "test.png")
+			tmpBitmap := robotgo.CaptureScreen(10, 20, 30, 40)
+			bitmap.Find(tmpBitmap)
+			bitmap.SaveCapture("test.png", tmpBitmap)
 		}
 	}
 }
@@ -40,14 +42,11 @@ func ListenScreen() {
 // 监听键盘事件
 func ListenKeywords() {
 	keywords := []string{"A", "B", "C", "D"}
-	for _, key := range keywords {
-		go func(key string) {
-			ok := robotgo.AddEvent(key)
-			if ok {
-				fmt.Printf("press: %s \n", key)
-			}
-		}(key)
-	}
+	hook.Register(hook.KeyDown, keywords, func(e hook.Event) {
+		fmt.Println("press: %s \n", e.Keychar)
+	})
+	s := hook.Start()
+	<-hook.Process(s)
 }
 
 // 模拟键盘事件
@@ -64,8 +63,8 @@ func PressKeywords() {
 
 // 弹窗
 func ShowMessage() {
-	btMsg := robotgo.ShowAlert("Alarm", "Hello Pibigstar", "Success", "Close")
-	if btMsg == 0 {
+	btMsg := robotgo.Alert("Alarm", "Hello Pibigstar", "Success", "Close")
+	if btMsg {
 		fmt.Println("确定")
 	} else {
 		fmt.Println("取消")

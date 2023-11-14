@@ -3,7 +3,6 @@ package elastic
 import (
 	"context"
 	"fmt"
-	"github.com/olivere/elastic"
 	"log"
 	"net/http"
 	"os"
