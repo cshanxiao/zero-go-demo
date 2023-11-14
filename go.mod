@@ -1,4 +1,4 @@
-module go-demo
+module zero-go-demo
 
 go 1.18
 
@@ -49,12 +49,11 @@ require (
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/nguyenthenguyen/docx v0.0.0-20181031033525-8cb697a41e43
 	github.com/nicksnyder/go-i18n/v2 v2.0.3
-	github.com/nsqio/go-nsq v1.0.7
+	github.com/nsqio/go-nsq v1.1.0
 	github.com/olivere/elastic v6.2.18+incompatible
 	github.com/olivere/elastic/v7 v7.0.30
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/panjf2000/ants/v2 v2.3.1
-	github.com/pibigstar/go-sdk v0.0.0-20190727082016-c4f5d238d8f5
 	github.com/pkg/errors v0.9.1
 	github.com/qianlnk/pgbar v0.0.0-20190929032005-46c23acad4ed
 	github.com/robertkrimen/otto v0.0.0-20200922221731-ef014fd054ac

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/pibigstar/go-sdk/nsq"
+	"zero-go-demo/sdk/nsq"
 )
 
 func main() {
